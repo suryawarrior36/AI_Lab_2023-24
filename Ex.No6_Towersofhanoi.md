@@ -1,31 +1,38 @@
-# Ex.No: 5   Logic Programming – Factorial of number   
+# Ex.No: 6   Logic Programming – Factorial of number   
 ### DATE: 09/03/2024                                                                           
 ### REGISTER NUMBER : 212221220053
 ### AIM: 
-To  write  a logic program for finding the factorial of given number using SWI-PROLOG. 
+To  write  a logic program  to solve Towers of Hanoi problem  using SWI-PROLOG. 
 ### Algorithm:
-1. STEP 1: Start the program
-2. STEP 2:  Write a rules for finding factorial of given program in SWI-PROLOG.
-3.   a)	factorial of 0 is 1 => written as factorial(0,1).
-4.   b)	factorial of number greater than 0 obtained by recursively calling the factorial    function.
-5. STEP 3: Run the program  to find answer of  query.
-6. STEP 4: Stop the program.
+1. Start the program
+2.  Write a rules for finding solution of Towers of Hanoi in SWI-PROLOG.
+3.  a )	If only one disk  => Move disk from X to Y.
+4.  b)	If Number of disk greater than 0 then
+5.        i)	Move  N-1 disks from X to Z.
+6.        ii)	Move  Nth disk from X to Y
+7.        iii)	Move  N-1 disks from Y to X.
+8. Run the program  to find answer of  query.
 
 ### Program:
-
 ```
-factorial(0,1).
-factorial(A,B) :-  
-           A > 0, 
-           C is A-1,
-           factorial(C,D),
-           B is A*D.
+move(1,X,Y,_) :-  
+    write('Move top disk from '), 
+    write(X), 
+    write(' to '), 
+    write(Y), 
+    nl. 
+move(N,X,Y,Z) :- 
+    N>1, 
+    M is N-1, 
+    move(M,X,Z,Y), 
+    move(1,X,Y,_), 
+    move(M,Z,Y,X).
 ```
 
 ### Output:
-![WhatsApp Image 2024-03-23 at 15 30 52_4ad65d73](https://github.com/snoopydj911/AI_Lab_2023-24/assets/122033587/2088ad5f-c822-47be-b4dd-43a14215d26c)
 
+![WhatsApp Image 2024-03-23 at 15 31 49_1e0cc20b](https://github.com/snoopydj911/AI_Lab_2023-24/assets/122033587/8a319588-3eac-4e60-b062-562fcb48b1c9)
 
 
 ### Result:
-Thus the factorial of given number was found by logic programming. 
+Thus the solution of Towers of Hanoi problem was found by logic programming.
